@@ -1,4 +1,4 @@
-1. git clone https://github.com/SuperMario4242/RestaurantWebService
+1. git clone https://github.com/SuperMario4242/RestaurantWebService.git
 2. cd RestaurantWebService
 3. docker-compose up --build
 4. Tam , kad ištestuoti servisą, reikia turėti postman aplikacija
