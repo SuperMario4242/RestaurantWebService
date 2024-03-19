@@ -1,0 +1,9 @@
+com\webservice\restaurant\Controllers\RestaurantController.class
+com\webservice\restaurant\Entities\Restaurant.class
+com\webservice\restaurant\Controllers\DishController.class
+com\webservice\restaurant\RestaurantService.class
+com\webservice\restaurant\Repositories\DishRepository.class
+com\webservice\restaurant\RestaurantApplication.class
+com\webservice\restaurant\Entities\Dish.class
+com\webservice\restaurant\SwaggerConfig.class
+com\webservice\restaurant\Repositories\RestaurantRepository.class
