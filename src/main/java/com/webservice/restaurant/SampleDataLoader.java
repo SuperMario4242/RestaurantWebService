@@ -24,28 +24,10 @@ public class SampleDataLoader implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        List<Dish> dishList = new ArrayList<Dish>();
-        // Pridedame pavyzdinius restoranus
+        List<Dish> dishList = new ArrayList<>();
         Restaurant restaurantA = new Restaurant();
-        restaurantA.setName("Restaurant A");
-        restaurantA.setAddress("Gedimino Pr.");
-        restaurantA.setCuisine("Italian");
-        restaurantA.setDishes(dishList);
-        restaurantService.createRestaurant(restaurantA);
-
         Restaurant restaurantB = new Restaurant();
-        restaurantB.setName("Restaurant B");
-        restaurantB.setAddress("Vokieciu gatve.");
-        restaurantB.setCuisine("German");
-        restaurantB.setDishes(dishList);
-        restaurantService.createRestaurant(restaurantB);
-
         Restaurant restaurantC = new Restaurant();
-        restaurantC.setName("Restaurant C");
-        restaurantC.setAddress("Kalvarijos gatve.");
-        restaurantC.setCuisine("Polish");
-        restaurantC.setDishes(dishList);
-        restaurantService.createRestaurant(restaurantC);
 
         // Pridedame pavyzdinius patiekalus
         Dish dish1 = new Dish();
@@ -91,5 +73,34 @@ public class SampleDataLoader implements CommandLineRunner {
         dish5.setPrice(9.75f);
         dish5.setRestaurant(restaurantC);
         restaurantService.createDish(dish5);
+        // Pridedame pavyzdinius restoranus
+
+        dishList.add(dish1);
+        dishList.add(dish2);
+        dishList.add(dish3);
+        dishList.add(dish4);
+
+
+        restaurantA.setName("Restaurant A");
+        restaurantA.setAddress("Gedimino Pr.");
+        restaurantA.setCuisine("Italian");
+        restaurantA.setDishes(dishList);
+        restaurantService.createRestaurant(restaurantA);
+
+
+        restaurantB.setName("Restaurant B");
+        restaurantB.setAddress("Vokieciu gatve.");
+        restaurantB.setCuisine("German");
+        restaurantB.setDishes(dishList);
+        restaurantService.createRestaurant(restaurantB);
+
+
+        restaurantC.setName("Restaurant C");
+        restaurantC.setAddress("Kalvarijos gatve.");
+        restaurantC.setCuisine("Polish");
+        restaurantC.setDishes(dishList);
+        restaurantService.createRestaurant(restaurantC);
+
+
     }
 }
