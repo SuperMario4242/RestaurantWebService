@@ -1,7 +1,7 @@
 package com.webservice.restaurant.Controllers;
 
 import com.webservice.restaurant.Entities.Restaurant;
-import com.webservice.restaurant.RestaurantService;
+import com.webservice.restaurant.Services.RestaurantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

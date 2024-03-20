@@ -1,5 +1,6 @@
 package com.webservice.restaurant.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.webservice.restaurant.Entities.Restaurant;
 import jakarta.persistence.*;
 
@@ -11,6 +12,11 @@ public class Dish {
 
     private String title;
 
+    public Dish(){
+
+    }
+
+
     private int potionSize;
 
     private String cuisine;
@@ -18,16 +24,17 @@ public class Dish {
     private Float price;
 
     @ManyToOne
+    @JsonIgnore
     private Restaurant restaurant;
 
 
-    public Restaurant getRestaurant() {
-        return restaurant;
-    }
-
-    public void setRestaurant(Restaurant restaurant) {
-        this.restaurant = restaurant;
-    }
+//    public Restaurant getRestaurant() {
+//        return restaurant;
+//    }
+//
+//    public void setRestaurant(Restaurant restaurant) {
+//        this.restaurant = restaurant;
+//    }
 
 
 
