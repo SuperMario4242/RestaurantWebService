@@ -18,7 +18,6 @@ public class Dish {
     private Float price;
 
     @ManyToOne
-    @JoinColumn(name = "restaurant_id", nullable = false)
     private Restaurant restaurant;
 
 
