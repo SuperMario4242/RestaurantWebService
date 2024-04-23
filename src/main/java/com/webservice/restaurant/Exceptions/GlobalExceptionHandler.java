@@ -7,72 +7,33 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.ErrorResponse;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
 
     @ExceptionHandler(RestaurantNotFoundException.class)
-    public ResponseEntity<ErrorResponse> handleRestaurantNotFoundException(RestaurantNotFoundException ex) {
-        ErrorResponse errorResponse = new ErrorResponse() {
-            @Override
-            public HttpStatusCode getStatusCode() {
-                return null;
-            }
-
-            @Override
-            public ProblemDetail getBody() {
-                return null;
-            }
-        };
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponse);
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ResponseEntity<String> handleRestaurantNotFoundException(RestaurantNotFoundException ex) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
     }
 
     @ExceptionHandler(ResourceAlreadyExistsException.class)
-    public ResponseEntity<ErrorResponse> handleRestaurantAlreadyExistsException(ResourceAlreadyExistsException ex) {
-        ErrorResponse errorResponse = new ErrorResponse() {
-            @Override
-            public HttpStatusCode getStatusCode() {
-                return null;
-            }
-
-            @Override
-            public ProblemDetail getBody() {
-                return null;
-            }
-        };
-        return ResponseEntity.status(HttpStatus.CONFLICT).body(errorResponse);
+    @ResponseStatus(HttpStatus.CONFLICT)
+    public ResponseEntity<String> handleRestaurantAlreadyExistsException(ResourceAlreadyExistsException ex) {
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(ex.getMessage());
     }
 
     @ExceptionHandler(InvalidRequestException.class)
-    public ResponseEntity<ErrorResponse> handleInvalidRequestException(InvalidRequestException ex) {
-        ErrorResponse errorResponse = new ErrorResponse() {
-            @Override
-            public HttpStatusCode getStatusCode() {
-                return null;
-            }
-
-            @Override
-            public ProblemDetail getBody() {
-                return null;
-            }
-        };
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ResponseEntity<String> handleInvalidRequestException(InvalidRequestException ex) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
     }
 
     @ExceptionHandler(NoDishesFoundForRestaurantException.class)
-    public ResponseEntity<ErrorResponse> handleNoDishesFoundForRestaurantException(NoDishesFoundForRestaurantException ex) {
-        ErrorResponse errorResponse = new ErrorResponse() {
-            @Override
-            public HttpStatusCode getStatusCode() {
-                return null;
-            }
-
-            @Override
-            public ProblemDetail getBody() {
-                return null;
-            }
-        };
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponse);
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ResponseEntity<String> handleNoDishesFoundForRestaurantException(NoDishesFoundForRestaurantException ex) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
     }
 }

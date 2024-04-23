@@ -7,6 +7,8 @@ import com.webservice.restaurant.Exceptions.RestaurantNotFoundException;
 import com.webservice.restaurant.Repositories.DishRepository;
 import com.webservice.restaurant.Repositories.RestaurantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,17 +28,19 @@ public class RestaurantService {
         return restaurantRepository.findById(id).orElseThrow(() -> new RestaurantNotFoundException(id));
     }
 
-    public Restaurant createRestaurant(@RequestBody Restaurant restaurant){
+    public ResponseEntity<Restaurant> createRestaurant(@RequestBody Restaurant restaurant){
 
 
         if (restaurantRepository.existsByName(restaurant.getName())) {
             throw new ResourceAlreadyExistsException(restaurant.getName());
         }
+
+        Restaurant savedRestaurant = restaurantRepository.save(restaurant);
         // Add any necessary validation logic before saving
-        return restaurantRepository.save(restaurant);
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedRestaurant);
     }
 
-    public Restaurant updateRestaurant(Long id, @RequestBody Restaurant restaurantNew){
+    public ResponseEntity<Restaurant> updateRestaurant(Long id, @RequestBody Restaurant restaurantNew){
         Restaurant restaurant = restaurantRepository.findById(id).orElseThrow(() -> new RestaurantNotFoundException(id));
 
         restaurant.setName(restaurantNew.getName());
@@ -44,7 +48,10 @@ public class RestaurantService {
         restaurant.setId(restaurantNew.getId());
         restaurant.setCuisine(restaurantNew.getCuisine());
         restaurant.setDishes(restaurantNew.getDishes());
-        return restaurantRepository.save(restaurant);
+
+        Restaurant updatedRestaurant = restaurantRepository.save(restaurant);
+
+        return ResponseEntity.ok(updatedRestaurant);
 
     }
 

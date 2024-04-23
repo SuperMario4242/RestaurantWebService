@@ -3,6 +3,7 @@ package com.webservice.restaurant.Controllers;
 import com.webservice.restaurant.Entities.Restaurant;
 import com.webservice.restaurant.Services.RestaurantService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,12 +27,12 @@ public class RestaurantController {
     }
 
     @PostMapping("/restaurants")
-    public Restaurant createRestaurant(@RequestBody Restaurant restaurant){
+    public ResponseEntity<Restaurant> createRestaurant(@RequestBody Restaurant restaurant){
         return restaurantService.createRestaurant(restaurant);
     }
 
     @PutMapping("/restaurants/{id}")
-    public Restaurant updateRestaurant(@PathVariable Long id, @RequestBody Restaurant authorDetails) {
+    public ResponseEntity<Restaurant> updateRestaurant(@PathVariable Long id, @RequestBody Restaurant authorDetails) {
         return restaurantService.updateRestaurant(id, authorDetails);
     }
 

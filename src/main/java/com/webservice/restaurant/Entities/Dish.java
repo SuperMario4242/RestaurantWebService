@@ -1,6 +1,7 @@
 package com.webservice.restaurant.Entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.webservice.restaurant.Entities.Restaurant;
 import jakarta.persistence.*;
 
@@ -12,31 +13,19 @@ public class Dish {
 
     private String title;
 
-    public Dish(){
-
-    }
-
-
-    private int potionSize;
-
-    private String cuisine;
-
     private Float price;
 
     @ManyToOne
-    @JsonIgnore
+    @JoinColumn(name = "restaurant_id", nullable = false)
     private Restaurant restaurant;
 
 
-//    public Restaurant getRestaurant() {
-//        return restaurant;
-//    }
-//
-//    public void setRestaurant(Restaurant restaurant) {
-//        this.restaurant = restaurant;
-//    }
-
-
+    public Restaurant getRestaurant() {
+        return restaurant;
+    }
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
+    }
 
 
 
@@ -46,22 +35,6 @@ public class Dish {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public int getPotionSize() {
-        return potionSize;
-    }
-
-    public void setPotionSize(int potionSize) {
-        this.potionSize = potionSize;
-    }
-
-    public String getCuisine() {
-        return cuisine;
-    }
-
-    public void setCuisine(String cuisine) {
-        this.cuisine = cuisine;
     }
 
     public Float getPrice() {
@@ -79,4 +52,5 @@ public class Dish {
     public Long getId() {
         return id;
     }
+
 }

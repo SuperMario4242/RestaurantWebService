@@ -4,6 +4,7 @@ import com.webservice.restaurant.Entities.Dish;
 import com.webservice.restaurant.Services.DishService;
 import com.webservice.restaurant.Services.RestaurantService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,7 +28,7 @@ public class DishController {
     }
 
     @PostMapping("/dishes")
-    public Dish createDish(@RequestBody Dish dish){
+    public ResponseEntity<Dish> createDish(@RequestBody Dish dish){
 
         return dishService.createDish(dish);
     }
@@ -45,7 +46,7 @@ public class DishController {
     }
 
     @PutMapping("/dishes/{id}")
-    public Dish updateDish(@PathVariable Long id, @RequestBody Dish dishDetails) {
+    public ResponseEntity<Dish> updateDish(@PathVariable Long id, @RequestBody Dish dishDetails) {
         return dishService.updateDish(id, dishDetails);
     }
 }

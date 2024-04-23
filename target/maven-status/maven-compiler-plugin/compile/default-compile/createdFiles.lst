@@ -1,15 +1,12 @@
-com\webservice\restaurant\Exceptions\GlobalExceptionHandler$4.class
 com\webservice\restaurant\Entities\Restaurant.class
 com\webservice\restaurant\Exceptions\InvalidRequestException.class
 com\webservice\restaurant\Repositories\DishRepository.class
 com\webservice\restaurant\SampleDataLoader.class
 com\webservice\restaurant\Repositories\RestaurantRepository.class
-com\webservice\restaurant\Exceptions\GlobalExceptionHandler$2.class
 com\webservice\restaurant\Exceptions\RestaurantNotFoundException.class
 com\webservice\restaurant\Services\DishService.class
 com\webservice\restaurant\Exceptions\NoDishesFoundForRestaurantException.class
 com\webservice\restaurant\Controllers\RestaurantController.class
-com\webservice\restaurant\Exceptions\GlobalExceptionHandler$1.class
 com\webservice\restaurant\Exceptions\ErrorResponse.class
 com\webservice\restaurant\Controllers\DishController.class
 com\webservice\restaurant\Exceptions\ResourceAlreadyExistsException.class
@@ -18,4 +15,3 @@ com\webservice\restaurant\Exceptions\ResourceNotFoundException.class
 com\webservice\restaurant\Entities\Dish.class
 com\webservice\restaurant\Exceptions\GlobalExceptionHandler.class
 com\webservice\restaurant\Services\RestaurantService.class
-com\webservice\restaurant\Exceptions\GlobalExceptionHandler$3.class
