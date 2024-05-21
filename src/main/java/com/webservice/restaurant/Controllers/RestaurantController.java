@@ -16,7 +16,6 @@ public class RestaurantController {
 
     @GetMapping("/restaurants")
     public List<Restaurant> getAllRestaurants(){
-
         return restaurantService.getAllRestaurants();
     }
 
@@ -33,15 +32,14 @@ public class RestaurantController {
 
     @PutMapping("/restaurants/{id}")
     public ResponseEntity<Restaurant> updateRestaurant(@PathVariable Long id, @RequestBody Restaurant authorDetails) {
-        return restaurantService.updateRestaurant(id, authorDetails);
+        Restaurant updatedRestaurant = restaurantService.updateRestaurant(id, authorDetails);
+        return ResponseEntity.ok(updatedRestaurant);
     }
 
 
     @DeleteMapping("/restaurants/{id}")
-    public void deleteRestaurant(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteRestaurant(@PathVariable Long id) {
         restaurantService.deleteRestaurant(id);
+        return ResponseEntity.noContent().build();
     }
-
-
-
 }

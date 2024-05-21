@@ -29,13 +29,13 @@ public class DishController {
 
     @PostMapping("/dishes")
     public ResponseEntity<Dish> createDish(@RequestBody Dish dish){
-
         return dishService.createDish(dish);
     }
 
     @DeleteMapping("/dishes/{id}")
-    public void deleteDish(@PathVariable Long id){
+    public ResponseEntity<Void> deleteDish(@PathVariable Long id){
         dishService.deleteDish(id);
+        return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/restaurants/{restaurant_id}/dishes")
@@ -47,6 +47,7 @@ public class DishController {
 
     @PutMapping("/dishes/{id}")
     public ResponseEntity<Dish> updateDish(@PathVariable Long id, @RequestBody Dish dishDetails) {
-        return dishService.updateDish(id, dishDetails);
+        Dish updatedDish = dishService.updateDish(id, dishDetails);
+        return  ResponseEntity.ok(updatedDish);
     }
 }
